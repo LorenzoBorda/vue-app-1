@@ -9,57 +9,65 @@
 </head>
 <body>
 
-<div id="vue-app">
-    <form>
-        <input type="text" v-model="label"/>{{label}}<br/>
-        <input type="text" v-model="amount"/>{{amount}}<br/>
-        <input type="date" v-model="date"/>{{date}}<br/>
-        <button type="button" v-on:click="add()">Add To Table</button>
-        <button type="button" v-on:click="saveData()">save</button>
-    </form>
-    <table>
-        <thead>
-            <td>Nom</td>
-            <td>Quantité</td>
-            <td>Date</td>
-        <tbody>
-        <tr v-for="x in arr">
-            <td>{{x.name}}</td>
-            <td>{{x.amount}} €</td>
-            <td>{{x.date}}</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+    <div id="vue-app">
+        <form>
+            <input type="text" v-model="label"/>{{label}}<br/>
+            <input type="text" v-model="amount"/>{{amount}}<br/>
+            <input type="date" v-model="date"/>{{date}}<br/>
+            <button type="button" v-on:click="add()">Add To Table</button>
+            <button type="button" v-on:click="saveData()">save</button>
+        </form>
+        <table>
+            <thead>
+                <td>Nom</td>
+                <td>Quantité</td>
+                <td>Date</td>
+            <tbody>
+            <tr v-for="x in arr">
+                <td>{{x.name}}</td>
+                <td>{{x.amount}} €</td>
+                <td>{{x.date}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-<script>
-    document.addEventListener("onPageLoaded", function(e){
-        // récupérer le doc
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.5/vue.min.js"></script>
-<script>
+    <script>
+        document.addEventListener("onPageLoaded", function(e){
+            // récupérer le doc
 
-new Vue ({
-    el: '#vue-app',
-    data: {
-        label: '',
-        amount: '',
-        date: ''
-    },
-  
-    methods: {
-        add: function (e) {
-            this.arr.push({name: this.label, amount: this.amount, date: this.date});
-            console.log(1);
+            //
+            //
+            // coucou monsieur :)
+            //
+            //
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.5/vue.min.js"></script>
+    <script>
+
+    new Vue ({
+        el: '#vue-app',
+        data: {
+            label: '',
+            amount: '',
+            date: ''
         },
-        saveData: function() {
-          const data = JSON.stringify(this.arr);
-          window.localStorage.setItem('arr', data);
-          console.log(JSON.parse(window.localStorage.getItem('arr')));
+    
+        methods: {
+            add: function (e) {
+                this.arr.push({name: this.label, amount: this.amount, date: this.date});
+                this.label = '';
+                this.amount = '';
+                this.date = '';
+            },
+            saveData: function() {
+            const data = JSON.stringify(this.arr);
+            // window.localStorage.setItem('arr', data);
+            // console.log(JSON.parse(window.localStorage.getItem('arr')));
+            }
         }
-    }
-  });
-</script>
+    });
+    </script>
 </body>
 </html>
