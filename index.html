@@ -33,7 +33,7 @@
     </div>
 
     <script>
-        document.addEventListener("onPageLoaded", function(e){
+        document.addEventListener("onload", function(e){
             var arr;
             // récupérer le doc
 
@@ -66,6 +66,7 @@
             const data = JSON.stringify(this.arr);
             // window.localStorage.setItem('arr', data);
             // console.log(JSON.parse(window.localStorage.getItem('arr')));
+            // stocker sous fichier json
             }
         }
     });
